@@ -10,11 +10,11 @@ This roadmap defines the planned development phases.
 
 **Goal:** Launch a static calendar with curated exam data.
 
-* [ ] Set up GitHub repository.
-* [ ] Add initial dataset of major exams/events (manually curated).
-* [ ] Build static site with calendar UI (using React + Next.js or Gatsby).
-* [ ] Deploy to **GitHub Pages / Netlify / Vercel**.
-* [ ] Add core documentation (README, Contributing, Data Format, License).
+* [x] Set up GitHub repository.
+* [x] Add initial dataset of major exams/events (manually curated).
+* [x] Build static site with calendar UI (using React + Vite).
+* [x] Deploy to **Cloudflare Pages / GitHub Pages**.
+* [x] Add core documentation (README, Contributing, Data Format, License).
 
 ✅ Outcome: A simple **public-facing calendar** with verified exam/event entries.
 

@@ -34,10 +34,11 @@ In India, students often face **exam date clashes** across universities, boards,
 
 ## 🛠 Tech Stack (MVP)
 
-* **Frontend**: React + Next.js (or Gatsby)
-* **Calendar UI**: FullCalendar.js / React-Calendar
-* **Data Source**: JSON/YAML (stored in repo for contributors)
-* **Hosting**: GitHub Pages / Netlify / Vercel
+* **Frontend**: React + Vite
+* **Calendar UI**: FullCalendar.js
+* **Styling**: Tailwind CSS
+* **Data Source**: JSON (stored in repo for contributors)
+* **Hosting**: Cloudflare Pages / GitHub Pages / Vercel
 
 ---
 
