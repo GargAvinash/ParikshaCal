@@ -8,7 +8,9 @@
     "date": "2026-05-10",
     "end_date": "2026-05-16",
     "importance_level": "medium",
-    "location": ["Maharashtra"],
+    "location": [
+      "Maharashtra"
+    ],
     "official_source": "https://cetcell.mahacet.org/",
     "notes": "PCB Stream: May 10-11; PCM Stream: May 12-16."
   },
@@ -21,7 +23,9 @@
     "date": "2026-05-11",
     "end_date": "2026-05-31",
     "importance_level": "high",
-    "location": ["All States"],
+    "location": [
+      "All States"
+    ],
     "official_source": "https://exams.nta.ac.in/CUET-UG/",
     "notes": "Major window for Central University admissions."
   },
@@ -34,7 +38,9 @@
     "date": "2026-05-17",
     "end_date": "2026-05-17",
     "importance_level": "high",
-    "location": ["All States"],
+    "location": [
+      "All States"
+    ],
     "official_source": "https://jeeadv.ac.in/",
     "notes": "Conducted by IIT Roorkee. Entry to IITs."
   },
@@ -47,7 +53,9 @@
     "date": "2026-05-24",
     "end_date": "2026-05-24",
     "importance_level": "high",
-    "location": ["All States"],
+    "location": [
+      "All States"
+    ],
     "official_source": "https://upsc.gov.in/",
     "notes": "Clashes with 71st BPSC Mains window (not prelims)."
   },
@@ -60,7 +68,9 @@
     "date": "2026-06-08",
     "end_date": "2026-06-10",
     "importance_level": "medium",
-    "location": ["Uttar Pradesh"],
+    "location": [
+      "Uttar Pradesh"
+    ],
     "official_source": "https://uppbpb.gov.in/",
     "notes": "Revised dates from initial May projections."
   },
@@ -73,7 +83,9 @@
     "date": "2026-06-05",
     "end_date": "2026-06-20",
     "importance_level": "high",
-    "location": ["All States"],
+    "location": [
+      "All States"
+    ],
     "official_source": "https://ssc.gov.in/",
     "notes": "Graduation level central govt recruitment."
   },
@@ -86,7 +98,9 @@
     "date": "2026-07-26",
     "end_date": "2026-07-26",
     "importance_level": "medium",
-    "location": ["Bihar"],
+    "location": [
+      "Bihar"
+    ],
     "official_source": "https://bpsc.bih.nic.in/",
     "notes": "Note: 71st cycle Mains expected May-June 2026."
   },
@@ -99,7 +113,9 @@
     "date": "2026-08-21",
     "end_date": "2026-08-25",
     "importance_level": "high",
-    "location": ["Select Cities"],
+    "location": [
+      "Select Cities"
+    ],
     "official_source": "https://upsc.gov.in/",
     "notes": "5-day descriptive examination."
   },
@@ -112,7 +128,9 @@
     "date": "2026-08-22",
     "end_date": "2026-08-23",
     "importance_level": "high",
-    "location": ["All States"],
+    "location": [
+      "All States"
+    ],
     "official_source": "https://ibps.in/",
     "notes": "Public Sector Bank recruitment cycle begins."
   },
@@ -125,7 +143,9 @@
     "date": "2026-08-30",
     "end_date": "2026-08-30",
     "importance_level": "high",
-    "location": ["All States"],
+    "location": [
+      "All States"
+    ],
     "official_source": "https://nbe.edu.in/",
     "notes": "Postgraduate medical entrance."
   },
@@ -138,7 +158,9 @@
     "date": "2026-11-29",
     "end_date": "2026-11-29",
     "importance_level": "high",
-    "location": ["All States"],
+    "location": [
+      "All States"
+    ],
     "official_source": "https://iimcat.ac.in/",
     "notes": "Likely conducted by IIM Indore. Last Sunday of November."
   },
@@ -151,8 +173,153 @@
     "date": "2026-12-06",
     "end_date": "2026-12-06",
     "importance_level": "high",
-    "location": ["All States"],
+    "location": [
+      "All States"
+    ],
     "official_source": "https://consortiumofnlus.ac.in/",
     "notes": "Law entrance for the 2027 academic year."
+  },
+  {
+    "exam_id": "ugc-net-june-2026",
+    "title": "UGC NET June 2026",
+    "category": "graduates",
+    "mode": "online",
+    "scope": "all-india",
+    "date": "2026-06-22",
+    "end_date": "2026-06-30",
+    "importance_level": "high",
+    "location": [
+      "All States"
+    ],
+    "official_source": "https://ugcnet.nta.nic.in/",
+    "notes": "Determines eligibility for Assistant Professor and JRF."
+  },
+  {
+    "exam_id": "nda-2-2026",
+    "title": "NDA 2 2026",
+    "category": "senior secondary",
+    "mode": "offline",
+    "scope": "all-india",
+    "date": "2026-09-13",
+    "end_date": "2026-09-13",
+    "importance_level": "medium",
+    "location": [
+      "All States"
+    ],
+    "official_source": "https://upsc.gov.in/",
+    "notes": "Conducted by UPSC. Clashes with CDS 2 2026."
+  },
+  {
+    "exam_id": "cds-2-2026",
+    "title": "CDS 2 2026",
+    "category": "graduates",
+    "mode": "offline",
+    "scope": "all-india",
+    "date": "2026-09-13",
+    "end_date": "2026-09-13",
+    "importance_level": "medium",
+    "location": [
+      "All States"
+    ],
+    "official_source": "https://upsc.gov.in/",
+    "notes": "Conducted by UPSC. Clashes with NDA 2 2026."
+  },
+  {
+    "exam_id": "afcat-2-2026",
+    "title": "AFCAT 2 2026",
+    "category": "graduates",
+    "mode": "online",
+    "scope": "all-india",
+    "date": "2026-08-28",
+    "end_date": "2026-08-30",
+    "importance_level": "low",
+    "location": [
+      "All States"
+    ],
+    "official_source": "https://afcat.cdac.in/",
+    "notes": "Tentative window for Indian Air Force recruitment."
+  },
+  {
+    "exam_id": "ugc-net-dec-2026",
+    "title": "UGC NET December 2026",
+    "category": "graduates",
+    "mode": "online",
+    "scope": "all-india",
+    "date": "2026-12-31",
+    "end_date": "2027-01-07",
+    "importance_level": "high",
+    "location": [
+      "All States"
+    ],
+    "official_source": "https://ugcnet.nta.nic.in/",
+    "notes": "End of year academic schedule. Expected CBT mode."
+  },
+  {
+    "exam_id": "assembly-elections-counting-2026",
+    "title": "State Assembly Elections 2026 (Counting Day)",
+    "category": "event",
+    "mode": "offline",
+    "scope": "multi-state",
+    "date": "2026-05-04",
+    "end_date": "2026-05-04",
+    "importance_level": "high",
+    "location": [
+      "Tamil Nadu",
+      "West Bengal",
+      "Assam",
+      "Kerala",
+      "Puducherry"
+    ],
+    "official_source": "https://eci.gov.in/",
+    "notes": "Major public event, massive state machinery engaged, 'Dry Day' enforced. Severe risk of conflict for local exams."
+  },
+  {
+    "exam_id": "diwali-2026",
+    "title": "Diwali Festival Week",
+    "category": "event",
+    "mode": "offline",
+    "scope": "all-india",
+    "date": "2026-11-06",
+    "end_date": "2026-11-11",
+    "importance_level": "high",
+    "location": [
+      "All States"
+    ],
+    "official_source": "",
+    "notes": "Main festival day is ~Nov 8. Heavy travel congestion and school/college holidays."
+  },
+  {
+    "exam_id": "dussehra-2026",
+    "title": "Dussehra / Vijayadashami",
+    "category": "event",
+    "mode": "offline",
+    "scope": "all-india",
+    "date": "2026-10-20",
+    "end_date": "2026-10-20",
+    "importance_level": "high",
+    "location": [
+      "All States"
+    ],
+    "official_source": "",
+    "notes": "Major public holiday, massive crowds and public gatherings across the country."
+  },
+  {
+    "exam_id": "ganesh-chaturthi-2026",
+    "title": "Ganesh Chaturthi",
+    "category": "event",
+    "mode": "offline",
+    "scope": "regional",
+    "date": "2026-09-14",
+    "end_date": "2026-09-14",
+    "importance_level": "medium",
+    "location": [
+      "Maharashtra",
+      "Karnataka",
+      "Gujarat",
+      "Andhra Pradesh",
+      "Telangana"
+    ],
+    "official_source": "",
+    "notes": "Massive public gatherings in Western and Southern India; local transport routes may be severely impacted."
   }
 ]
