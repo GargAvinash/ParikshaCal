@@ -30,7 +30,18 @@ export default function App() {
       const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                            (event.notes && event.notes.toLowerCase().includes(searchQuery.toLowerCase()));
       const matchesCat = filterCategory === 'all' || event.category === filterCategory;
-      const matchesScope = filterScope === 'all' || event.scope === filterScope;
+      
+      let matchesScope = filterScope === 'all';
+      if (!matchesScope) {
+        if (filterScope === 'all-india') {
+          matchesScope = event.scope === 'all-india';
+        } else if (filterScope === 'state-level') {
+          matchesScope = ['state-level', 'multi-state', 'state', 'regional'].includes(event.scope);
+        } else if (filterScope === 'local') {
+          matchesScope = ['local', 'district'].includes(event.scope);
+        }
+      }
+
       const matchesMode = filterMode === 'all' || event.mode === filterMode;
       
       return matchesSearch && matchesCat && matchesScope && matchesMode;

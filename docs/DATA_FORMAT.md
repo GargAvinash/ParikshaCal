@@ -13,14 +13,14 @@ This document explains the schema in detail.
 | ------------------ | ------ | -------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | `exam_id`          | string | ✅ Yes    | Unique identifier for the exam/event (use lowercase, hyphens).                                                  | `"jee-main-2026"`                |
 | `title`            | string | ✅ Yes    | Full name of the exam/event.                                                                                    | `"JEE Main 2026 (Session 1)"`    |
-| `category`         | string | ✅ Yes    | Target audience / exam category. Allowed: `secondary`, `senior-secondary`, `graduates`, `recruitment`, `other`. | `"graduates"`                    |
+| `category`         | string | ✅ Yes    | Target audience / exam category. Allowed: `secondary`, `senior-secondary`, `graduates`, `recruitment`, `other`, `event`. | `"graduates"`                    |
 | `mode`             | string | ✅ Yes    | Mode of exam/event. Allowed: `online`, `offline`, `hybrid`.                                                     | `"online"`                       |
-| `scope`            | string | ✅ Yes    | Geographical scope. Allowed: `all-india`, `state`, `district`, `local`.                                         | `"all-india"`                    |
+| `scope`            | string | ✅ Yes    | Geographical scope. Allowed: `all-india`, `state-level`, `multi-state`, `regional`, `state`, `district`, `local`. | `"all-india"`                    |
 | `date`             | string | ✅ Yes    | Start date (format: `YYYY-MM-DD`).                                                                              | `"2026-04-02"`                   |
-| `end_date`         | string | ❌ No     | End date (if multi-day exam/event).                                                                             | `"2026-04-06"`                   |
+| `end_date`         | string | ✅ Yes    | End date. For single-day events, use same as `date`.                                                            | `"2026-04-06"`                   |
 | `importance_level` | string | ✅ Yes    | Scale of importance. Allowed: `high`, `medium`, `low`.                                                          | `"high"`                         |
 | `location`         | array  | ✅ Yes    | States/regions covered (list format).                                                                           | `["Bihar"]`, `["all states"]`    |
-| `official_source`  | string | ✅ Yes    | Official website/notice link (Govt, University, or Verified Source).                                            | `"https://nta.ac.in/JEE"`        |
+| `official_source`  | string | ✅ Yes    | Official website/notice link. Leave empty `""` for public gatherings with no source.                            | `"https://nta.ac.in/JEE"`        |
 | `notes`            | string | ❌ No     | Extra information (optional).                                                                                   | `"Expected 14+ lakh candidates"` |
 
 ---
@@ -35,6 +35,7 @@ This document explains the schema in detail.
   "mode": "online",
   "scope": "all-india",
   "date": "2026-06-15",
+  "end_date": "2026-06-15",
   "importance_level": "high",
   "location": ["all states"],
   "official_source": "https://ssc.nic.in/",

@@ -93,15 +93,19 @@ export function EventDialog({ event, onClose }: EventDialogProps) {
                   {event.category}
                 </span>
               </div>
-              <a 
-                href={event.official_source} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
-              >
-                Official Notice
-                <ExternalLink className="w-4 h-4 ml-1.5" />
-              </a>
+              {event.official_source ? (
+                <a 
+                  href={event.official_source} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  {event.category === 'event' ? 'More Info' : 'Official Notice'}
+                  <ExternalLink className="w-4 h-4 ml-1.5" />
+                </a>
+              ) : (
+                <span className="text-xs text-slate-400 italic font-medium">No official link available</span>
+              )}
             </div>
           </div>
         </div>
