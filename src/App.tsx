@@ -139,29 +139,28 @@ export default function App() {
           {/* Category */}
           <div>
             <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Category</h2>
-            <div className="space-y-1 text-sm font-medium text-slate-600">
-              <label className="flex items-center gap-2 px-3 py-1 cursor-pointer hover:text-indigo-600">
-                <input 
-                  type="radio"
-                  name="filterCategory"
-                  checked={filterCategory === 'all'}
-                  onChange={() => setFilterCategory('all')}
-                  className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" 
-                /> 
-                <span>All Categories</span>
-              </label>
-              {categories.map(cat => (
-                <label key={cat} className="flex items-center gap-2 px-3 py-1 cursor-pointer hover:text-indigo-600 capitalize">
-                  <input 
-                    type="radio"
-                    name="filterCategory"
-                    checked={filterCategory === cat}
-                    onChange={() => setFilterCategory(cat)}
-                    className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" 
-                  /> 
-                  <span>{cat}</span>
-                </label>
-              ))}
+            <div className="space-y-1">
+              {[{ id: 'all', label: 'All Categories' }, ...categories.map(cat => ({ id: cat, label: cat }))].map(item => {
+                const isActive = filterCategory === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setFilterCategory(item.id)}
+                    className={cn(
+                      "w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors capitalize",
+                      isActive 
+                        ? "bg-indigo-50 text-indigo-700" 
+                        : "text-slate-600 hover:bg-slate-50"
+                    )}
+                  >
+                    <span className={cn(
+                      "w-2 h-2 rounded-full",
+                      isActive ? "bg-indigo-600" : "bg-slate-300"
+                    )}></span>
+                    {item.label}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
