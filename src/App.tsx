@@ -3,7 +3,7 @@ import { CalendarWidget } from './components/CalendarWidget';
 import { EventDialog } from './components/EventDialog';
 import rawExams from '@/data/events.json';
 import { ExamEvent } from './types';
-import { Calendar as CalendarIcon, Filter, Search, Globe, Library, Menu, X } from 'lucide-react';
+import { Search, Globe, Library, Menu, X } from 'lucide-react';
 import { cn } from './lib/utils';
 
 export default function App() {
@@ -49,7 +49,7 @@ export default function App() {
   }, [exams, searchQuery, filterCategory, filterScope, filterMode]);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col lg:flex-row font-sans text-slate-900 sm:border-8 border-slate-200 relative">
+    <div className="min-h-screen bg-slate-50 flex flex-col lg:flex-row font-sans text-slate-900 relative">
       
       {/* Mobile Overlay */}
       {isSidebarOpen && (
@@ -168,34 +168,24 @@ export default function App() {
           {/* Mode */}
           <div>
             <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Mode</h2>
-            <div className="grid grid-cols-3 gap-1 bg-slate-100 p-1 rounded-lg">
-              <button
-                 onClick={() => setFilterMode('all')}
-                 className={cn(
-                   "py-1.5 rounded-md text-xs font-medium transition-all shadow-sm",
-                   filterMode === 'all' ? "bg-white text-indigo-700" : "text-slate-500 hover:text-slate-700 shadow-none"
-                 )}
-              >
-                All
-              </button>
-              <button
-                 onClick={() => setFilterMode('online')}
-                 className={cn(
-                   "py-1.5 rounded-md text-xs font-medium transition-all shadow-sm",
-                   filterMode === 'online' ? "bg-white text-indigo-700" : "text-slate-500 hover:text-slate-700 shadow-none"
-                 )}
-              >
-                Online
-              </button>
-              <button
-                 onClick={() => setFilterMode('offline')}
-                 className={cn(
-                   "py-1.5 rounded-md text-xs font-medium transition-all shadow-sm",
-                   filterMode === 'offline' ? "bg-white text-indigo-700" : "text-slate-500 hover:text-slate-700 shadow-none"
-                 )}
-              >
-                Offline
-              </button>
+            <div className="grid grid-cols-2 gap-1 bg-slate-100 p-1 rounded-lg">
+              {[
+                { id: 'all', label: 'All' },
+                { id: 'online', label: 'Online' },
+                { id: 'offline', label: 'Offline' },
+                { id: 'hybrid', label: 'Hybrid' }
+              ].map(mode => (
+                <button
+                  key={mode.id}
+                  onClick={() => setFilterMode(mode.id)}
+                  className={cn(
+                    "py-1.5 rounded-md text-xs font-medium transition-all shadow-sm",
+                    filterMode === mode.id ? "bg-white text-indigo-700" : "text-slate-500 hover:text-slate-700 shadow-none"
+                  )}
+                >
+                  {mode.label}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -259,7 +249,7 @@ export default function App() {
             <div className="flex gap-2 text-[10px] font-semibold uppercase tracking-wider text-slate-600">
               <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-red-500"></div> High</span>
               <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-amber-500"></div> Medium</span>
-              <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-400"></div> Normal</span>
+              <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-400"></div> Low</span>
             </div>
           </div>
           <CalendarWidget 
@@ -272,11 +262,15 @@ export default function App() {
         <footer className="h-12 bg-white border-t border-slate-200 flex items-center justify-between px-4 sm:px-8 text-[11px] font-medium text-slate-500 flex-shrink-0">
           <div className="flex gap-4 sm:gap-6">
             <span className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> {exams.length} Events Verified
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+              {filteredExams.length === exams.length 
+                ? `${exams.length} Events` 
+                : `${filteredExams.length} of ${exams.length} Events`
+              }
             </span>
           </div>
-          <div className="italic hidden sm:block">
-            Last updated: Just now • <a href="https://github.com/GargAvinash/ParikshaCal" target="_blank" rel="noreferrer" className="text-indigo-600 cursor-pointer underline">View Source Repo</a>
+          <div className="hidden sm:block">
+            Source: Official exam portals • <a href="https://github.com/GargAvinash/ParikshaCal" target="_blank" rel="noreferrer" className="text-indigo-600 cursor-pointer underline">View Source Repo</a>
           </div>
         </footer>
       </main>
