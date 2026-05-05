@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { CalendarWidget } from './components/CalendarWidget';
 import { EventDialog } from './components/EventDialog';
 import { Sidebar } from './components/Sidebar';
@@ -6,12 +6,13 @@ import rawExams from '@data/events.json';
 import { ExamEvent } from './types';
 import { Menu } from 'lucide-react';
 import { useExamFilters } from './hooks/useExamFilters';
+import { validateEvents } from './lib/validateEvents';
 
 export default function App() {
   const [selectedEvent, setSelectedEvent] = useState<ExamEvent | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
-  const exams = rawExams as ExamEvent[];
+  const exams = useMemo(() => validateEvents(rawExams).events, []);
 
   const {
     searchQuery, setSearchQuery,
