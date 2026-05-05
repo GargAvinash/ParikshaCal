@@ -39,7 +39,7 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
 
   return (
     <div className="w-full bg-slate-100 flex flex-col">
-      <div className="bg-white sm:bg-transparent rounded-xl sm:rounded-none overflow-hidden sm:border-none border border-slate-200">
+      <div className="bg-white sm:bg-transparent rounded-xl sm:rounded-none overflow-hidden sm:border-none border border-slate-200 calendar-wrapper">
         {/* @ts-ignore: React 19 typing compat */}
         <FullCalendar
           ref={calendarRef}
@@ -81,6 +81,12 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
           eventClassNames="cursor-pointer font-medium hover:opacity-80 transition-opacity !rounded-sm px-1"
           dayMaxEvents={3}
         />
+        {/* Importance legend — positioned inside toolbar via CSS */}
+        <div className="calendar-legend hidden md:flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-slate-600">
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-red-500"></span> High</span>
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-500"></span> Medium</span>
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-400"></span> Low</span>
+        </div>
       </div>
     </div>
   );

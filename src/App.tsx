@@ -244,13 +244,6 @@ export default function App() {
 
         {/* FullCalendar's toolbar will serve as the header. We just need a wrapper for the calendar component itself to fill the space. */}
         <section className="relative px-3 py-3 sm:px-0 sm:py-0 flex-1">
-          <div className="absolute top-7 sm:top-[22px] right-4 sm:right-[300px] z-10 hidden md:flex items-center gap-4">
-            <div className="flex gap-2 text-[10px] font-semibold uppercase tracking-wider text-slate-600">
-              <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-red-500"></div> High</span>
-              <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-amber-500"></div> Medium</span>
-              <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-400"></div> Low</span>
-            </div>
-          </div>
           <CalendarWidget 
             events={filteredExams} 
             onEventClick={event => setSelectedEvent(event)} 

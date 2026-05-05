@@ -39,6 +39,23 @@
   font-family: inherit;
 }
 
+.calendar-wrapper {
+  position: relative;
+}
+
+.calendar-legend {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .calendar-legend {
+    right: 2rem;
+  }
+}
+
 .fc .fc-toolbar {
   background-color: #ffffff;
   padding: 1rem 1rem;
