@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { CalendarWidget } from './components/CalendarWidget';
 import { EventDialog } from './components/EventDialog';
 import { Sidebar } from './components/Sidebar';
-import rawExams from '@/data/events.json';
+import rawExams from '@data/events.json';
 import { ExamEvent } from './types';
 import { Menu } from 'lucide-react';
 import { useExamFilters } from './hooks/useExamFilters';
