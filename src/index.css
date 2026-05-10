@@ -35,7 +35,7 @@
   --fc-button-active-border-color: transparent;
   --fc-event-bg-color: #3b82f6;
   --fc-event-border-color: #3b82f6;
-  --fc-today-bg-color: #f8fafc;
+  --fc-today-bg-color: #eff6ff;
   font-family: inherit;
 }
 
@@ -167,16 +167,22 @@
 }
 
 .fc-day-today .fc-daygrid-day-number {
-  background-color: transparent;
-  color: #3b82f6;
-  border-radius: 0;
-  min-width: auto;
-  height: auto;
-  display: inline-block;
-  margin: 0;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 2px;
+  background-color: #3b82f6;
+  color: #ffffff !important;
+  border-radius: 9999px;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0 2px 0;
+  padding: 0 !important;
+  font-size: 0.875rem;
+}
+
+.fc-daygrid-day-top {
+  display: flex;
+  justify-content: center;
 }
 
 .fc-h-event {

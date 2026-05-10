@@ -56,20 +56,23 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
              const eventPast = isPast(parseISO(ev.end_date));
              let bgColor = "bg-blue-100";
              let textColor = "text-blue-800";
-             let borderColor = "border-blue-500";
+             let borderColor = "border-blue-200";
+             let accentColor = "border-l-blue-500";
              
              if (ev.importance_level === "high") {
                bgColor = "bg-red-100";
                textColor = "text-red-800";
-               borderColor = "border-red-500";
+               borderColor = "border-red-200";
+               accentColor = "border-l-red-500";
              } else if (ev.importance_level === "medium") {
                bgColor = "bg-amber-100";
                textColor = "text-amber-900";
-               borderColor = "border-amber-500";
+               borderColor = "border-amber-200";
+               accentColor = "border-l-amber-500";
              }
 
              return (
-               <div className={`w-full px-1.5 py-0.5 rounded sm:rounded-md text-[10px] sm:text-xs font-bold border border-l-4 truncate ${bgColor} ${borderColor} ${textColor} ${eventPast ? 'opacity-50' : ''}`}>
+               <div className={`w-full px-1.5 py-0.5 rounded sm:rounded-md text-[10px] sm:text-xs font-bold border border-l-4 truncate ${bgColor} ${borderColor} ${accentColor} ${textColor} ${eventPast ? 'opacity-50' : ''}`}>
                  {eventInfo.event.title}
                </div>
              )
