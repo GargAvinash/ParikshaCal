@@ -55,25 +55,26 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
              const ev = eventInfo.event.extendedProps.originalEvent as ExamEvent;
              const eventPast = isPast(parseISO(ev.end_date));
              let bgColor = "bg-blue-100";
-             let textColor = "text-blue-800";
+             let textColor = "text-blue-900";
              let borderColor = "border-blue-200";
-             let accentColor = "border-l-blue-500";
+             let dotColor = "bg-blue-400";
              
              if (ev.importance_level === "high") {
                bgColor = "bg-red-100";
-               textColor = "text-red-800";
+               textColor = "text-red-900";
                borderColor = "border-red-200";
-               accentColor = "border-l-red-500";
+               dotColor = "bg-red-500";
              } else if (ev.importance_level === "medium") {
                bgColor = "bg-amber-100";
                textColor = "text-amber-900";
                borderColor = "border-amber-200";
-               accentColor = "border-l-amber-500";
+               dotColor = "bg-amber-500";
              }
 
              return (
-               <div className={`w-full px-1.5 py-0.5 rounded sm:rounded-md text-[10px] sm:text-xs font-bold border border-l-4 truncate ${bgColor} ${borderColor} ${accentColor} ${textColor} ${eventPast ? 'opacity-50' : ''}`}>
-                 {eventInfo.event.title}
+               <div className={`w-full px-2 py-1.5 rounded-lg text-[10px] sm:text-[11px] font-bold border flex items-center gap-1.5 truncate ${bgColor} ${borderColor} ${textColor} ${eventPast ? 'opacity-50' : ''}`}>
+                 <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColor}`}></span>
+                 <span className="truncate">{eventInfo.event.title}</span>
                </div>
              )
           }}
