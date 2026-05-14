@@ -24,12 +24,12 @@ This roadmap defines the planned development phases.
 
 **Goal:** Allow open contributions from volunteers.
 
-* [ ] Store events in **JSON/YAML format**.
-* [ ] Define schema & validation rules.
+* [x] Store events in **JSON/YAML format**.
+* [x] Define schema & validation rules.
 * [ ] Add contributor workflow (PR-based).
-* [ ] Implement filters: category, scope, mode.
-* [ ] Add color-coded importance levels (high, medium, low).
-* [ ] Add tooltips/popups with event details.
+* [x] Implement filters: category, scope, mode.
+* [x] Add color-coded importance levels (high, medium, low).
+* [x] Add tooltips/popups with event details.
 
 ✅ Outcome: A **community-maintained dataset**, easy to expand.
 
