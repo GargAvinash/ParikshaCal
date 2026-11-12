@@ -1,8 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { ExamEvent } from '../types';
-import { parseISO, addDays, format, isPast } from 'date-fns';
+import { parseISO, addDays, format, isPast, startOfMonth } from 'date-fns';
+import { MobileCalendar } from './MobileCalendar';
 
 interface CalendarWidgetProps {
   events: ExamEvent[];
@@ -11,6 +12,7 @@ interface CalendarWidgetProps {
 
 export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
   const calendarRef = useRef<FullCalendar>(null);
+  const [month, setMonth] = useState(() => startOfMonth(new Date()));
 
   // Map our ExamEvent to FullCalendar's Event Input
   const fcEvents = events.map(event => {
@@ -39,12 +41,21 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
 
   return (
     <div className="w-full bg-slate-100 flex flex-col">
-      <div className="bg-white sm:bg-transparent rounded-xl sm:rounded-none overflow-hidden sm:border-none border border-slate-200 calendar-wrapper">
+      <MobileCalendar
+        month={month}
+        events={events}
+        onMonthChange={date => calendarRef.current?.getApi().gotoDate(date)}
+        onEventClick={onEventClick}
+      />
+      <div className="hidden sm:block bg-white sm:bg-transparent rounded-xl sm:rounded-none overflow-hidden sm:border-none border border-slate-200 calendar-wrapper">
         {/* @ts-ignore: React 19 typing compat */}
         <FullCalendar
           ref={calendarRef}
           plugins={[dayGridPlugin]}
           initialView="dayGridMonth"
+          datesSet={({ view }) => setMonth(current =>
+            current.getTime() === view.currentStart.getTime() ? current : view.currentStart
+          )}
           headerToolbar={{
             left: 'title prev,next',
             center: '',
@@ -72,9 +83,9 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
              }
 
              return (
-               <div className={`w-full px-0.5 sm:px-2 py-1.5 rounded-lg text-[10px] sm:text-[11px] font-bold border flex items-center gap-1.5 sm:truncate ${bgColor} ${borderColor} ${textColor} ${eventPast ? 'opacity-50' : ''}`}>
-                 <span className={`hidden sm:block w-1.5 h-1.5 rounded-full shrink-0 ${dotColor}`}></span>
-                 <span className="min-w-0 line-clamp-3 whitespace-normal [overflow-wrap:anywhere] sm:line-clamp-none sm:truncate sm:[overflow-wrap:normal]">{eventInfo.event.title}</span>
+               <div className={`w-full px-2 py-1.5 rounded-lg text-[10px] sm:text-[11px] font-bold border flex items-center gap-1.5 truncate ${bgColor} ${borderColor} ${textColor} ${eventPast ? 'opacity-50' : ''}`}>
+                 <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColor}`}></span>
+                 <span className="truncate">{eventInfo.event.title}</span>
                </div>
              )
           }}
@@ -82,7 +93,7 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
             onEventClick(info.event.extendedProps.originalEvent as ExamEvent);
           }}
           height="auto"
-          eventClassNames="cursor-pointer font-medium hover:opacity-80 transition-opacity !rounded-sm px-0 sm:px-1"
+          eventClassNames="cursor-pointer font-medium hover:opacity-80 transition-opacity !rounded-sm px-1"
           dayMaxEvents={3}
         />
         {/* Importance legend — positioned inside toolbar via CSS */}

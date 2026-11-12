@@ -76,7 +76,7 @@ export default function App() {
             onEventClick={event => setSelectedEvent(event)} 
           />
           {filteredExams.length === 0 && (
-            <div className="absolute inset-0 flex items-center justify-center z-[5] pointer-events-none">
+            <div className="absolute inset-0 hidden sm:flex items-center justify-center z-[5] pointer-events-none">
               <div className="bg-white/90 backdrop-blur-sm rounded-xl px-8 py-6 text-center shadow-sm border border-slate-200 pointer-events-auto">
                 <p className="text-slate-600 text-sm font-semibold">No events match your filters</p>
                 <p className="text-slate-400 text-xs mt-1">Try adjusting your search or filter criteria</p>
