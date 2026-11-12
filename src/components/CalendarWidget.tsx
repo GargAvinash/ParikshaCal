@@ -1,8 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { ExamEvent } from '../types';
-import { parseISO, addDays, format, isPast } from 'date-fns';
+import { parseISO, addDays, format, isPast, startOfMonth } from 'date-fns';
+import { MobileCalendar } from './MobileCalendar';
 
 interface CalendarWidgetProps {
   events: ExamEvent[];
@@ -11,6 +12,7 @@ interface CalendarWidgetProps {
 
 export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
   const calendarRef = useRef<FullCalendar>(null);
+  const [month, setMonth] = useState(() => startOfMonth(new Date()));
 
   // Map our ExamEvent to FullCalendar's Event Input
   const fcEvents = events.map(event => {
@@ -39,12 +41,21 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
 
   return (
     <div className="w-full bg-slate-100 flex flex-col">
-      <div className="bg-white sm:bg-transparent rounded-xl sm:rounded-none overflow-hidden sm:border-none border border-slate-200 calendar-wrapper">
+      <MobileCalendar
+        month={month}
+        events={events}
+        onMonthChange={date => calendarRef.current?.getApi().gotoDate(date)}
+        onEventClick={onEventClick}
+      />
+      <div className="hidden sm:block bg-white sm:bg-transparent rounded-xl sm:rounded-none overflow-hidden sm:border-none border border-slate-200 calendar-wrapper">
         {/* @ts-ignore: React 19 typing compat */}
         <FullCalendar
           ref={calendarRef}
           plugins={[dayGridPlugin]}
           initialView="dayGridMonth"
+          datesSet={({ view }) => setMonth(current =>
+            current.getTime() === view.currentStart.getTime() ? current : view.currentStart
+          )}
           headerToolbar={{
             left: 'title prev,next',
             center: '',
