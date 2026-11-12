@@ -72,9 +72,9 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
              }
 
              return (
-               <div className={`w-full px-2 py-1.5 rounded-lg text-[10px] sm:text-[11px] font-bold border flex items-center gap-1.5 truncate ${bgColor} ${borderColor} ${textColor} ${eventPast ? 'opacity-50' : ''}`}>
-                 <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColor}`}></span>
-                 <span className="truncate">{eventInfo.event.title}</span>
+               <div className={`w-full px-0.5 sm:px-2 py-1.5 rounded-lg text-[10px] sm:text-[11px] font-bold border flex items-center gap-1.5 sm:truncate ${bgColor} ${borderColor} ${textColor} ${eventPast ? 'opacity-50' : ''}`}>
+                 <span className={`hidden sm:block w-1.5 h-1.5 rounded-full shrink-0 ${dotColor}`}></span>
+                 <span className="min-w-0 line-clamp-3 whitespace-normal [overflow-wrap:anywhere] sm:line-clamp-none sm:truncate sm:[overflow-wrap:normal]">{eventInfo.event.title}</span>
                </div>
              )
           }}
@@ -82,7 +82,7 @@ export function CalendarWidget({ events, onEventClick }: CalendarWidgetProps) {
             onEventClick(info.event.extendedProps.originalEvent as ExamEvent);
           }}
           height="auto"
-          eventClassNames="cursor-pointer font-medium hover:opacity-80 transition-opacity !rounded-sm px-1"
+          eventClassNames="cursor-pointer font-medium hover:opacity-80 transition-opacity !rounded-sm px-0 sm:px-1"
           dayMaxEvents={3}
         />
         {/* Importance legend — positioned inside toolbar via CSS */}

@@ -214,6 +214,15 @@
   padding: 0;
 }
 
+/* Give wrapped mobile titles the width of the day cell, keeping the desktop
+   badge spacing at Tailwind's sm breakpoint and above. */
+@media (width < 640px) {
+  .fc-h-event {
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+  }
+}
+
 /* Minimal scrollbars */
 .fc-scroller::-webkit-scrollbar {
   width: 8px;
