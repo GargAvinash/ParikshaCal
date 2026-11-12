@@ -1,4 +1,4 @@
-import { endOfMonth, format, startOfMonth } from 'date-fns';
+import { eachDayOfInterval, endOfMonth, endOfWeek, format, startOfMonth, startOfWeek } from 'date-fns';
 import type { ExamEvent } from '../types';
 
 function eventsInRange(events: readonly ExamEvent[], start: string, end: string): ExamEvent[] {
@@ -18,5 +18,20 @@ export function getEventsInMonth(events: readonly ExamEvent[], month: Date): Exa
     events,
     format(startOfMonth(month), 'yyyy-MM-dd'),
     format(endOfMonth(month), 'yyyy-MM-dd'),
+  );
+}
+
+export function getWeekDays(anchorDate: Date): Date[] {
+  return eachDayOfInterval({
+    start: startOfWeek(anchorDate, { weekStartsOn: 0 }),
+    end: endOfWeek(anchorDate, { weekStartsOn: 0 }),
+  });
+}
+
+export function getEventsInWeek(events: readonly ExamEvent[], anchorDate: Date): ExamEvent[] {
+  return eventsInRange(
+    events,
+    format(startOfWeek(anchorDate, { weekStartsOn: 0 }), 'yyyy-MM-dd'),
+    format(endOfWeek(anchorDate, { weekStartsOn: 0 }), 'yyyy-MM-dd'),
   );
 }
